@@ -50,7 +50,7 @@ function init() {
       allCells[i].style.cursor = "pointer";
       allCells[i].addEventListener("mousedown", startRecording);
    }
-   
+   //if solved the puzzle or not
    document.getElementById("wordSearchTable").onmouseup = function() {
       stopRecording();
       var wordList = document.querySelectorAll("ul#wordSearchList li");
@@ -65,7 +65,7 @@ function init() {
          alert("You solved the puzzle!");
       }
    };
-   
+   //shows all the words
    document.getElementById("showSolution").onclick = function() {
       for (var i = 0; i < allCells.length; i++) {
          if (allCells[i].className === "wordCell") {
@@ -101,7 +101,7 @@ function stopRecording() {
    checkLetters();
 }
   
-
+//checks if the letters are  correct
 function checkLetters() {
    var currentLetters = document.getElementById("pickedLetters").value;
    var wordList = document.querySelectorAll("ul#wordSearchList li");
@@ -112,7 +112,7 @@ function checkLetters() {
          found = true;
       }
    }
-   
+   //changes color to ones already found 
    for (var i = 0; i < allCells.length; i++) {
       if (allCells[i].style.backgroundColor !== "rgb(28, 255, 132)") {
          if (allCells[i].style.backgroundColor === "rgb(255, 197, 153)" && found) {
